@@ -1,0 +1,22 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      NAME: todo-db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: qwerty
+      POSTGRES_DB: todo-app
+      POSTGRES_MAX_CONNECTIONS: 3
+      PGDATA: /var/lib/postgresql/data/
+    ports:
+      - "5436:5432"
+    volumes:
+      - db:/var/lib/postgresql/data/
+
+volumes:
+  db:
+  
